@@ -1,0 +1,35 @@
+{% extends 'cine/index.html' %}
+
+{% block titulo %}
+Peliculas
+{% endblock titulo %}
+
+{% block body %}
+    {% if salas %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Descripcion</th>
+                    <th>Asientos</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sala in salas %}
+                    <tr>
+                        <td>{{ sala.nombre }}</td>
+                        <td>{{ sala.descripcion }}</td>
+                        <td>{{ sala.asientos }}</td>
+                        <td>
+                            <a href="{% url 'editar_sala' sala.id %}">Editar</a>
+                            <a href="{% url 'eliminar_sala' sala.id %}">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h1>No existen salas</h1>
+    {% endif %}
+{% endblock body %}

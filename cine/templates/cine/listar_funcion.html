@@ -1,0 +1,37 @@
+{% extends 'cine/index.html' %}
+
+{% block titulo %}
+Funciones
+{% endblock titulo %}
+
+{% block body %}
+    {% if funciones %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Pelicula</th>
+                    <th>Sala</th>
+                    <th>Horario</th>
+                    <th>Descripcion</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for funcion in funciones %}
+                    <tr>
+                        <td>{{ funcion.pelicula_id }}</td>
+                        <td>{{ funcion.sala_id }}</td>
+                        <td>{{ funcion.horario }}</td>
+                        <td>{{ funcion.descripcion }}</td>
+                        <td>
+                            <a href="{% url 'editar_funcion' funcion.id %}">Editar</a>
+                            <a href="{% url 'eliminar_funcion' funcion.id %}">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h1>No existen funciones</h1>
+    {% endif %}
+{% endblock body %}

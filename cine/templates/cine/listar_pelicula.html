@@ -1,0 +1,33 @@
+{% extends 'cine/index.html' %}
+
+{% block titulo %}
+Peliculas
+{% endblock titulo %}
+
+{% block body %}
+    {% if peliculas %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Titulo</th>
+                    <th>Descripcion</th>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for pelicula in peliculas %}
+                    <tr>
+                        <td>{{ pelicula.title }}</td>
+                        <td>{{ pelicula.text }}</td>
+                        <td>
+                            <a href="{% url 'editar_pelicula' pelicula.id %}">Editar</a>
+                            <a href="{% url 'eliminar_pelicula' pelicula.id %}">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <h1>No existen peliculas</h1>
+    {% endif %}
+{% endblock body %}

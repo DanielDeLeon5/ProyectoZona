@@ -2,8 +2,13 @@
 {% block body %}
     <form method="POST">
         {% csrf_token %}
-        {{ pelicula_form.as_p }}
-        <button type="submit" name="button">Crear</button>
+        {% if error %}
+            <h2>{{ error }}</h2>
+        {% else %}
+            {{ pelicula_form.as_p }}
+            <button type="submit" name="button">Guardar</button>
+        {% endif %}
+
     </form>
 
 {% endblock body %}
