@@ -7,9 +7,7 @@ class Pelicula(models.Model):
     title = models.CharField(max_length=200)
     text = models.TextField()
     created_date = models.DateTimeField(
-            default=timezone.now)
-    published_date = models.DateTimeField(
-            blank=True, null=True)
+            auto_now = True, auto_now_add = False)
 
     def publish(self):
         self.published_date = timezone.now()
@@ -32,6 +30,8 @@ class Funcion(models.Model):
     id = models.AutoField(primary_key = True)
     descripcion = models.TextField()
     horario = models.TextField()
+    created_date = models.DateTimeField(
+            auto_now = True, auto_now_add = False)
     pelicula_id = models.ForeignKey(Pelicula, on_delete = models.CASCADE)
     sala_id = models.ManyToManyField(Sala)
 

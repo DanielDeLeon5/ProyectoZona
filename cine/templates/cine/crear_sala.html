@@ -1,0 +1,9 @@
+{% extends 'cine/index.html' %}
+{% block body %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ sala_form.as_p }}
+        <button type="submit" name="button">Crear</button>
+    </form>
+
+{% endblock body %}
