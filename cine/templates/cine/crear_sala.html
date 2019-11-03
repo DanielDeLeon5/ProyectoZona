@@ -1,4 +1,11 @@
 {% extends 'cine/index.html' %}
+{% load staticfiles %}
+{% block enca %}
+Sala
+{% endblock enca %}
+{% block img %}
+{% static 'img/2.jpg' %}
+{% endblock img %}
 {% block body %}
     <form method="POST">
         {% csrf_token %}

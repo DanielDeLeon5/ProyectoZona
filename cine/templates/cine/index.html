@@ -54,7 +54,7 @@
   </nav>
 
   <!-- Page Header -->
-  <header class="masthead" style="background-image: url('{%static 'img/home-bg.jpg' %}')">
+  <header class="masthead" style="background-image: url({% block img %}{%static 'img/1.jpg' %}{% endblock img%})">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
@@ -77,7 +77,7 @@
         {% if funciones %}
         {% for funcion in funciones %}
         <div class="post-preview">
-          <a href="post.html">
+          <a href="">
             <h2 class="post-title">
               {{ funcion.pelicula_id }}
             </h2>
@@ -86,7 +86,9 @@
             </h3>
           </a>
           <p class="post-meta">Sala:
-            <a href="#">{{ funcion.sala_id }}</a>
+            <a href="#">{% for sala in funcion.sala_id.all %}
+                {{ sala.nombre }},
+            {% endfor %}</a>
             {{ funcion.horario }}</p>
         </div>
         <hr>

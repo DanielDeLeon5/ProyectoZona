@@ -1,12 +1,21 @@
-{% extends 'cine/index.html' %}
 
+{% extends 'cine/index.html' %}
+{% load staticfiles %}
 {% block titulo %}
 Salas
 {% endblock titulo %}
 {% block enca %}
 Salas
 {% endblock enca %}
+{% block img %}
+{% static 'img/2.jpg' %}
+{% endblock img %}
 {% block body %}
+<div class="float-right">
+
+    <a class="btn btn-primary" href="{% url 'crear_sala' %}" role="button">NUEVA SALA</a>
+    <hr>
+</div>
     {% if salas %}
         <table class="table table-hover">
             <thead>

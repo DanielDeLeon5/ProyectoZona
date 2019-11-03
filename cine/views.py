@@ -20,7 +20,7 @@ def crearPelicula(request):
         pelicula_form = PeliculaForm(request.POST)
         if pelicula_form.is_valid():
             pelicula_form.save()
-            return redirect('index')
+            return redirect('listar_pelicula')
     else:
         pelicula_form = PeliculaForm()
     return render(request,'cine/crear_pelicula.html',{'pelicula_form':pelicula_form})
@@ -30,7 +30,7 @@ def crearSala(request):
         sala_form = SalaForm(request.POST)
         if sala_form.is_valid():
             sala_form.save()
-            return redirect('index')
+            return redirect('listar_sala')
     else:
         sala_form = SalaForm()
     return render(request,'cine/crear_sala.html',{'sala_form':sala_form})
@@ -40,7 +40,7 @@ def crearFuncion(request):
         funcion_form = FuncionForm(request.POST)
         if funcion_form.is_valid():
             funcion_form.save()
-            return redirect('index')
+            return redirect('listar_funcion')
     else:
         funcion_form = FuncionForm()
     return render(request,'cine/crear_funcion.html',{'funcion_form':funcion_form})

@@ -1,12 +1,20 @@
 {% extends 'cine/index.html' %}
-
+{% load staticfiles %}
 {% block titulo %}
 Peliculas
 {% endblock titulo %}
 {% block enca %}
 Peliculas
 {% endblock enca %}
+{% block img %}
+{% static 'img/3.jpg' %}
+{% endblock img %}
 {% block body %}
+<div class="float-right">
+
+    <a class="btn btn-primary" href="{% url 'crear_pelicula' %}" role="button">NUEVA PELICUA</a>
+    <hr>
+</div>
     {% if peliculas %}
         <table class="table table-hover">
             <thead>
