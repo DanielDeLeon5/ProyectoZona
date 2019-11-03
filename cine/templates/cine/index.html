@@ -29,7 +29,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="index.html">Cine</a>
+      <a class="navbar-brand" href="{% url 'index' %}">Cine</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -44,6 +44,9 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'listar_sala' %}">Salas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}">Salir</a>
           </li>
         </ul>
       </div>
@@ -71,20 +74,26 @@
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
         {% block body %}
+        {% if funciones %}
+        {% for funcion in funciones %}
         <div class="post-preview">
           <a href="post.html">
             <h2 class="post-title">
-              Failure is not an option
+              {{ funcion.pelicula_id }}
             </h2>
             <h3 class="post-subtitle">
-              Many say exploration is part of our destiny, but it’s actually our duty to future generations.
+              {{ funcion.descripcion }}
             </h3>
           </a>
-          <p class="post-meta">Posted by
-            <a href="#">Start Bootstrap</a>
-            on July 8, 2019</p>
+          <p class="post-meta">Sala:
+            <a href="#">{{ funcion.sala_id }}</a>
+            {{ funcion.horario }}</p>
         </div>
         <hr>
+        {% endfor %}
+        {% else %}
+            <h1>No existen funciones</h1>
+        {% endif %}
         {% endblock body %}
         <!-- Pager -->
 

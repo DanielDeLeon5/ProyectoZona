@@ -1,11 +1,19 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils import timezone
+from django.views.generic import TemplateView,ListView
 from .models import Pelicula, Funcion, Sala
 from .forms import PeliculaForm, SalaForm, FuncionForm
 
+class Inicio(ListView):
+    model = Funcion
+    template_name = 'cine/index.html'
+    context_object_name = 'funciones'
+    queryset = Funcion.objects.all()
+
 def Home(request):
-    return render(request,'cine/index.html')
+    funciones = Funcion.objects.all()
+    return render(request,'cine/index.html',{'funciones':funciones})
 
 def crearPelicula(request):
     if request.method == "POST":
