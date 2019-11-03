@@ -1,12 +1,14 @@
 {% extends 'cine/index.html' %}
 {% block body %}
-    <form method="POST">
+    <form method="POST" class="form-group">
         {% csrf_token %}
         {% if error %}
             <h2>{{ error }}</h2>
         {% else %}
+        <div class="form-group">
             {{ pelicula_form.as_p }}
-            <button type="submit" name="button">Guardar</button>
+        </div>
+            <button type="submit" name="button" class="btn btn-primary">Guardar</button>
         {% endif %}
 
     </form>

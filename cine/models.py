@@ -4,8 +4,8 @@ from django.utils import timezone
 
 class Pelicula(models.Model):
     id = models.AutoField(primary_key = True)
-    title = models.CharField(max_length=200)
-    text = models.TextField()
+    title = models.CharField('Titulo',max_length=200)
+    text = models.TextField('Descripcion')
     created_date = models.DateTimeField(
             auto_now = True, auto_now_add = False)
 

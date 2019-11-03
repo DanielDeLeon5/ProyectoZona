@@ -3,17 +3,19 @@
 {% block titulo %}
 Funciones
 {% endblock titulo %}
-
+{% block enca %}
+Funciones
+{% endblock enca %}
 {% block body %}
     {% if funciones %}
-        <table>
+        <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>Pelicula</th>
-                    <th>Sala</th>
-                    <th>Horario</th>
-                    <th>Descripcion</th>
-                    <th>Opciones</th>
+                    <th scope="col">Pelicula</th>
+                    <th scope="col">Sala</th>
+                    <th scope="col">Horario</th>
+                    <th scope="col">Descripcion</th>
+                    <th scope="col">Opciones</th>
                 </tr>
             </thead>
             <tbody>
