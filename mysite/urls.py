@@ -23,7 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('cine.urls')),
 
-    #path('/inicio', Inicio.as_view(), name = 'index'),
+    path('/inicio', Inicio.as_view(), name = 'index'),
     #path('accounts/login/',login,{'template_name':'cine/login.html'}, name = 'login'),
     #path('logout/',logout_then_login, name = 'logout')
 
