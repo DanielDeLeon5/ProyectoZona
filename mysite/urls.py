@@ -24,7 +24,7 @@ urlpatterns = [
     path('', include('cine.urls')),
 
     path('/inicio', Inicio.as_view(), name = 'index'),
-    path('',login,{'template_name':'cine/login.html'}, name = 'login'),
+    #path('',login,{'template_name':'cine/login.html'}, name = 'login'),
     #path('logout/',logout_then_login, name = 'logout')
 
 ]
